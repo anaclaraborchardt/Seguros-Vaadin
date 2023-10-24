@@ -7,24 +7,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "plano")
+@Table(name = "seguro")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@IdClass(SeguroIdClass.class)
 public class Seguro {
 
+//    @EmbeddedId
+//    private SeguroId idComposto;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer seguroId;
+    @Id
+    private Integer seguradoraId;
     private Double valor;
     private String descricao;
     private Double franquia;
     @ManyToOne
+//    @MapsId("seguradoraId")
+    @JoinColumn(name = "seguradoraId")
     private Seguradora seguradora;
     @OneToOne
-    @JsonIgnore
+//    @MapsId("carroId")
     private Carro carro;
     @ManyToOne
-    @JsonIgnore
     private Cliente cliente;
 }

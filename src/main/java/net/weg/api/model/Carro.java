@@ -8,14 +8,12 @@ import java.sql.SQLException;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(name="carro")
 
 public class Carro {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idCarro")
     private Integer id;
     private String cor;
     private String modelo;

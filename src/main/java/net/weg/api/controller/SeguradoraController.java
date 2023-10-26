@@ -1,8 +1,6 @@
 package net.weg.api.controller;
 
-import net.weg.api.model.Cliente;
-import net.weg.api.model.Seguradora;
-import net.weg.api.service.ClienteService;
+import net.weg.api.model.Entity.Seguradora;
 import net.weg.api.service.SeguradoraService;
 import org.springframework.web.bind.annotation.*;
 

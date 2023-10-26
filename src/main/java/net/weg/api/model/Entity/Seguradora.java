@@ -1,4 +1,4 @@
-package net.weg.api.model;
+package net.weg.api.model.Entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

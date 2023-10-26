@@ -1,10 +1,8 @@
-package net.weg.api.model;
+package net.weg.api.model.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import net.weg.api.model.Carro;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)

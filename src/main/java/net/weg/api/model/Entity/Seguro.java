@@ -1,6 +1,5 @@
-package net.weg.api.model;
+package net.weg.api.model.Entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,22 +1,22 @@
-package net.weg.api.model;
+package net.weg.api.model.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Habilitacao {
+public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Integer id;
-    private Long registro;
-    private Long cpf;
-    private String orgaoEmissor;
-
+    private String rua;
+    private String bairro;
+    private Integer numero;
 }

@@ -12,6 +12,7 @@ public class MeusSeguros extends VerticalLayout {
 
     public MeusSeguros() {
 
+
         add(new H1("Meus seguros"));
         add(new Grid<>(Seguro.class));
         

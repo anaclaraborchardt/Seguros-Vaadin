@@ -1,6 +1,5 @@
 package net.weg.api.controller;
 
-import lombok.AllArgsConstructor;
 import net.weg.api.model.DTO.CarroCadastroDTO;
 import net.weg.api.model.DTO.CarroEdicaoDTO;
 import net.weg.api.model.Entity.Carro;
@@ -10,10 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.NoSuchElementException;
 
-@AllArgsConstructor
 @RestController
 @RequestMapping("/carro")
 //Request Mapping -> todas as requisições dentro de determinada controller
@@ -21,6 +18,10 @@ import java.util.NoSuchElementException;
 public class CarroController {
 
     private final CarroService carroService;
+
+    public CarroController(CarroService carroService) {
+        this.carroService = carroService;
+    }
 
     @GetMapping("/{id}")
     //path seria uma variável da url
@@ -40,7 +41,7 @@ public class CarroController {
                 HttpStatus.OK);
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<Collection<Carro>> buscarTodos(){
         return new ResponseEntity<>(carroService.buscarTodos(),
                 HttpStatus.OK);
@@ -57,7 +58,7 @@ public class CarroController {
         carroService.deletar(id);
     }
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<Carro> inserir(@RequestBody CarroCadastroDTO carroCadastroDTO){
         try {
             return new ResponseEntity<>(carroService.inserir(carroCadastroDTO),

@@ -11,7 +11,7 @@ import java.util.Collection;
 @Service
 public class SeguradoraService {
 
-    private SeguradoraRepository seguradoraRepository;
+    private final SeguradoraRepository seguradoraRepository;
 
         public Seguradora buscarSeguradora(Integer id){
             return seguradoraRepository.findById(id).get();

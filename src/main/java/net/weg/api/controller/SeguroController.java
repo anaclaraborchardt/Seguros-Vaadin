@@ -10,27 +10,27 @@ import java.util.Collection;
 @RequestMapping("/seguro")
 public class SeguroController {
 
-    private SeguroService seguroService;
+    private final SeguroService seguroService;
 
     public SeguroController(SeguroService seguroService) {
         this.seguroService = seguroService;
     }
 
-    @GetMapping("/{id}")
-    //path seria uma variável da url
-    public Seguro buscarSeguro(@PathVariable Integer id){
-        return seguroService.buscarSeguro(id);
-    }
+//    @GetMapping("/{id}")
+//    //path seria uma variável da url
+//    public Seguro buscarSeguro(@PathVariable Integer id){
+//        return seguroService.buscarSeguro(id);
+//    }
 
     @GetMapping()
     public Collection<Seguro> buscarTodos(){
         return seguroService.buscarTodos();
     }
 
-    @DeleteMapping
-    public void deletar(@RequestParam Integer id){
-        seguroService.deletar(id);
-    }
+//    @DeleteMapping
+//    public void deletar(@RequestParam Integer id){
+//        seguroService.deletar(id);
+//    }
 
     @PostMapping()
     public void inserir(@RequestBody Seguro seguro){

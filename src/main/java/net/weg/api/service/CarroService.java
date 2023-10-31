@@ -9,13 +9,12 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
 
 @AllArgsConstructor
 @Service
 public class CarroService {
 
-    private CarroRepository carroRepository;
+    private final CarroRepository carroRepository;
 
     public Carro buscarCarro(Integer id){
         return carroRepository.findById(id).get();

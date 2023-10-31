@@ -12,8 +12,8 @@ import java.util.Optional;
 @AllArgsConstructor
 public class ClienteService {
 
-    private ClienteRepository usuarioRepository;
-    private CarroService carroService;
+    private final ClienteRepository usuarioRepository;
+    private final CarroService carroService;
 
     public void salvar(Cliente usuario){
         usuarioRepository.save(usuario);

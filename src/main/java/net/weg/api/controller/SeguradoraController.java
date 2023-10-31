@@ -9,7 +9,7 @@ import java.util.Collection;
 @RestController
 @RequestMapping("/seguradora")
 public class SeguradoraController {
-    private SeguradoraService seguradoraService;
+    private final SeguradoraService seguradoraService;
 
     public SeguradoraController(SeguradoraService seguradoraService) {
         this.seguradoraService = seguradoraService;

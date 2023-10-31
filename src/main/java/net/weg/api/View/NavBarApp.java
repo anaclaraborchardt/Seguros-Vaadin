@@ -1,6 +1,5 @@
-package ai.segura.front;
+package net.weg.api.View;
 
-import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.tabs.Tab;
@@ -28,7 +27,7 @@ public class NavBarApp extends AppLayout {
                 tabs.add(createTab("Início", MeusSeguros.class),
                         createTab("Meus automóveis", MeusAutomoveis.class),
                         createTab("Meus Seguros", MeusSeguros.class),
-                        createTab("Seguradoras", Seguradoras.class),
+                        createTab("Seguradoras", MeusSeguros.class),
                         createTab("Perfil", MeusSeguros.class));
                 return tabs;
             }
@@ -39,7 +38,7 @@ public class NavBarApp extends AppLayout {
                 link.add(viewName);
                 // Demo has no routes
                 // link.setRoute(viewClass.java);
-                link.setRoute(MeusSeguros.class);
+                link.setRoute(classe);
                 link.setTabIndex(-1);
 
                 return new Tab(link);

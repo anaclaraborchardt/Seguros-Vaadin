@@ -1,5 +1,6 @@
 package net.weg.api.controller;
 
+import net.weg.api.model.DTO.UsuarioCadastroDTO;
 import net.weg.api.model.Entity.Cliente;
 import net.weg.api.service.ClienteService;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ import java.util.Collection;
 //tem que estar dentro de determinado caminho
 public class ClienteController {
 
-    private ClienteService usuarioService;
+    private final ClienteService usuarioService;
 
     public ClienteController(ClienteService usuarioService) {
         this.usuarioService = usuarioService;
@@ -35,12 +36,12 @@ public class ClienteController {
     }
 
     @PostMapping()
-    public void inserir(@RequestBody Cliente usuario){
-        usuarioService.salvar(usuario);
+    public void inserir(@RequestBody UsuarioCadastroDTO usuarioDTO){
+        usuarioService.salvar(usuarioDTO);
     }
 
     @PutMapping
-    public void atualizar (@RequestBody Cliente usuario){
-        usuarioService.salvar(usuario);
+    public void atualizar (@RequestBody UsuarioCadastroDTO usuarioDTO){
+        usuarioService.salvar(usuarioDTO);
     }
 }

@@ -36,8 +36,6 @@ public class NavBarApp extends AppLayout {
     private Tab createTab(String viewName, Class classe) {
                 RouterLink link = new RouterLink();
                 link.add(viewName);
-                // Demo has no routes
-                // link.setRoute(viewClass.java);
                 link.setRoute(classe);
                 link.setTabIndex(-1);
 

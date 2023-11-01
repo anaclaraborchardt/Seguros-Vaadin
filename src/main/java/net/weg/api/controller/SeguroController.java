@@ -1,5 +1,6 @@
 package net.weg.api.controller;
 
+import net.weg.api.model.DTO.SeguroCadastroDTO;
 import net.weg.api.model.Entity.Seguro;
 import net.weg.api.service.SeguroService;
 import org.springframework.web.bind.annotation.*;
@@ -33,12 +34,12 @@ public class SeguroController {
 //    }
 
     @PostMapping()
-    public void inserir(@RequestBody Seguro seguro){
+    public void inserir(@RequestBody SeguroCadastroDTO seguro){
         seguroService.inserir(seguro);
     }
 
-    @PutMapping
-    public void atualizar (@RequestBody Seguro seguro){
-        seguroService.inserir(seguro);
-    }
+//    @PutMapping
+//    public void atualizar (@RequestBody Seguro){
+//        seguroService.inserir(seguro);
+//    }
 }

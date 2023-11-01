@@ -19,7 +19,7 @@ public class Cliente extends Usuario{
     private Habilitacao habilitacao;
     @OneToMany(mappedBy = "cliente")
     private Set<Seguro> seguros;
-//    @ManyToMany(mappedBy = "clientes")
-//    private Set<Seguradora> seguradoras;
+    @ManyToMany(mappedBy = "clientes")
+    private Set<Seguradora> seguradoras;
 
 }

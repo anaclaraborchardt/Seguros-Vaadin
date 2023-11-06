@@ -32,6 +32,5 @@ public class SeguroService {
             Seguro seguro = new Seguro();
             BeanUtils.copyProperties(seguroCadastroDTO, seguro);
             seguroRepository.save(seguro);
-
         }
 }

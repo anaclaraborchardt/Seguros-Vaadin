@@ -18,6 +18,6 @@ public class Seguradora {
     private String nome;
     @OneToOne(cascade = CascadeType.PERSIST)
     private Endereco endereco;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Cliente> clientes;
 }

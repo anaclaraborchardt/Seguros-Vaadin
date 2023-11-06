@@ -8,11 +8,15 @@ import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.select.Select;
 import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.SneakyThrows;
 import net.weg.api.model.DTO.SeguroCadastroDTO;
 import net.weg.api.model.Entity.Carro;
 import net.weg.api.model.Entity.Cliente;
 import net.weg.api.model.Entity.Seguradora;
+import net.weg.api.model.Entity.Usuario;
 import net.weg.api.service.CarroService;
 import net.weg.api.service.ClienteService;
 import net.weg.api.service.SeguradoraService;
@@ -20,6 +24,9 @@ import net.weg.api.service.SeguroService;
 
 import java.awt.*;
 
+@EqualsAndHashCode(callSuper = true)
+@AllArgsConstructor
+@Data
 public class CadastroSeguros extends FormLayout {
 
     private final SeguroService seguroService;
@@ -43,9 +50,10 @@ public class CadastroSeguros extends FormLayout {
         carro.setLabel("Veículo");
         carro.setItems(carroService.buscarTodos());
 
-        Select<Cliente> usuario = new Select<>();
-        seguradora.setLabel("Cliente");
-        usuario.setItems(clienteService.buscarTodos());
+        Select<Cliente> clienteSelect = new Select<>();
+//        usuario.setItemLabelGenerator(item -> toString());
+        clienteSelect.setLabel("Cliente");
+        clienteSelect.setItems(clienteService.buscarTodos());
 
         Button buttonSave = new Button("Salvar", new ComponentEventListener<ClickEvent<com.vaadin.flow.component.button.Button>>() {
             @SneakyThrows
@@ -57,7 +65,8 @@ public class CadastroSeguros extends FormLayout {
                         franquia.getValue(),
                         seguradora.getValue(),
                         carro.getValue(),
-                        usuario.getValue()
+                        clienteSelect.getValue()
+
                 );
 
                 seguroService.inserir(seguroDTO);
@@ -67,7 +76,7 @@ public class CadastroSeguros extends FormLayout {
 
         Button buttonCancel = new Button("Cancelar", event -> dialog.close());
         dialog.getFooter().add(buttonSave, buttonCancel);
-        add(valor, descricao, franquia, seguradora, carro, usuario);
+        add(valor, descricao, franquia, seguradora, carro, clienteSelect);
     }
 
 }

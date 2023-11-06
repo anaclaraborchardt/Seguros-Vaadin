@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import net.weg.api.model.Entity.Carro;
 import net.weg.api.model.Entity.Cliente;
 import net.weg.api.model.Entity.Seguradora;
+import net.weg.api.model.Entity.Usuario;
 
 @Data
 @AllArgsConstructor

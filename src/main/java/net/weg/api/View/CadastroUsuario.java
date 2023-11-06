@@ -11,6 +11,7 @@ import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import net.weg.api.model.DTO.EnderecoCadastroDTO;
 import net.weg.api.model.DTO.UsuarioCadastroDTO;
@@ -27,6 +28,7 @@ public class CadastroUsuario extends FormLayout {
     private ClienteService clienteService;
 
     private final TextField usuario = new TextField("Nome");
+    private final TextField sobrenome = new TextField("Sobrenome");
     private final PasswordField senha = new PasswordField("Senha");
     private final PasswordField confirmacaoSenha = new PasswordField("Confirmar Senha");;
     private final IntegerField idade = new IntegerField("Idade");
@@ -55,6 +57,7 @@ public class CadastroUsuario extends FormLayout {
 
                 clienteService.salvar(new UsuarioCadastroDTO(
                         usuario.getValue(),
+                        sobrenome.getValue(),
                         senha.getValue(),
                         idade.getValue(),
                         enderecos));
@@ -71,6 +74,6 @@ public class CadastroUsuario extends FormLayout {
 
         cancelar = new Button("Cancelar", event -> new UI().navigate("/"));
 
-        add(usuario, senha, confirmacaoSenha, idade, salvar, cancelar, novoEndereco, gridEnderecos);
+        add(usuario, sobrenome, senha, confirmacaoSenha, idade, salvar, cancelar, novoEndereco, gridEnderecos);
     }
 }

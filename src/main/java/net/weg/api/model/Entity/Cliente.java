@@ -5,12 +5,9 @@ import lombok.*;
 
 import java.util.Set;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@PrimaryKeyJoinColumn(name="id")
 public class Cliente extends Usuario{
 
     @OneToMany
@@ -19,7 +16,11 @@ public class Cliente extends Usuario{
     private Habilitacao habilitacao;
     @OneToMany(mappedBy = "cliente")
     private Set<Seguro> seguros;
-    @ManyToMany(mappedBy = "clientes")
+    @ManyToMany(mappedBy = "clientes", fetch = FetchType.EAGER)
     private Set<Seguradora> seguradoras;
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

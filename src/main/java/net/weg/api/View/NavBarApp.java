@@ -27,8 +27,8 @@ public class NavBarApp extends AppLayout {
                 tabs.add(createTab("Início", MeusSeguros.class),
                         createTab("Meus automóveis", MeusAutomoveis.class),
                         createTab("Meus Seguros", MeusSeguros.class),
-                        createTab("Seguradoras", MeusSeguros.class),
-                        createTab("Perfil", MeusSeguros.class));
+                        createTab("Seguradoras", MinhasSeguradoras.class),
+                        createTab("Perfil", CadastroUsuario.class));
                 return tabs;
             }
 

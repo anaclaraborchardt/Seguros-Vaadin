@@ -2,6 +2,7 @@ package net.weg.api.controller;
 
 import net.weg.api.model.DTO.UsuarioCadastroDTO;
 import net.weg.api.model.Entity.Cliente;
+import net.weg.api.model.Entity.Usuario;
 import net.weg.api.service.ClienteService;
 import org.springframework.web.bind.annotation.*;
 

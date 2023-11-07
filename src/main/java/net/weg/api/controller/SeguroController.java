@@ -17,21 +17,21 @@ public class SeguroController {
         this.seguroService = seguroService;
     }
 
-//    @GetMapping("/{id}")
-//    //path seria uma variável da url
-//    public Seguro buscarSeguro(@PathVariable Integer id){
-//        return seguroService.buscarSeguro(id);
-//    }
+    @GetMapping("/{id}/{seguradoraId}")
+    //path seria uma variável da url
+    public Seguro buscarSeguro(@PathVariable Integer id, @PathVariable Integer seguradoraId){
+        return seguroService.buscarSeguro(id, seguradoraId);
+    }
 
     @GetMapping()
     public Collection<Seguro> buscarTodos(){
         return seguroService.buscarTodos();
     }
 
-//    @DeleteMapping
-//    public void deletar(@RequestParam Integer id){
-//        seguroService.deletar(id);
-//    }
+    @DeleteMapping("/{id}/{seguradoraId}")
+    public void deletar(@PathVariable Integer id, @PathVariable Integer seguradoraId){
+        seguroService.deletar(id, seguradoraId);
+    }
 
     @PostMapping()
     public void inserir(@RequestBody SeguroCadastroDTO seguro){

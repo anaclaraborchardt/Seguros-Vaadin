@@ -11,7 +11,7 @@ import java.util.List;
 public interface CarroRepository extends JpaRepository<Carro, Integer> {
 
     List<Carro> findByMarca(String marca);
-    Carro findBySeguro_SeguroId(Integer id);
+//    Carro findBySeguro_SeguroId(Integer id);
     List<Carro> findBySeguro_Seguradora_Id(Integer id);
     boolean existsByPlaca(String placa);
 

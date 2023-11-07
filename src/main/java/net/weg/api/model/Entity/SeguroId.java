@@ -7,14 +7,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @AllArgsConstructor
-@NoArgsConstructor
-@Data
+
 @Embeddable
-public class SeguroId {
+public class SeguroId implements Serializable {
 
     private Integer seguradoraId;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer seguroId;
+    private final Integer seguroId;
+    private static Integer proxId = 1;
 //    private Integer carroId;
+
+    public SeguroId(){
+        seguroId = proxId;
+        proxId ++;
+    }
 }

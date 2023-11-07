@@ -31,4 +31,12 @@ public class Carro {
         this.ano = carroDTO.getAno();
     }
 
+    @Override
+    public String toString() {
+        return "Carro: " +
+                ", placa='" + placa + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", marca='" + marca + '\'' +
+                '}';
+    }
 }

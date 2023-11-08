@@ -3,24 +3,26 @@ package net.weg.api.service;
 import lombok.AllArgsConstructor;
 import net.weg.api.model.DTO.CarroCadastroDTO;
 import net.weg.api.model.DTO.CarroEdicaoDTO;
+import net.weg.api.model.DTO.IDTO;
 import net.weg.api.model.Entity.Carro;
 import net.weg.api.repository.CarroRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+import java.util.List;
 
 @AllArgsConstructor
 @Service
-public class CarroService {
+public class CarroService implements IService<Carro, Integer> {
 
     private final CarroRepository carroRepository;
 
-    public Carro buscarCarro(Integer id){
+    public Carro buscarUm(Integer id){
         return carroRepository.findById(id).get();
     }
 
-    public Collection<Carro> buscarTodos(){
+    public List<Carro> buscarTodos(){
         return carroRepository.findAll();
     }
 
@@ -36,7 +38,8 @@ public class CarroService {
         carroRepository.deleteById(id);
     }
 
-    public Carro inserir(CarroCadastroDTO carroDTO) throws Exception {
+    public void cadastrar(IDTO idto) throws Exception {
+        CarroCadastroDTO carroDTO = (CarroCadastroDTO) idto;
         //faz a conversão de carroDTO para o objeto carro:
         Carro carro = new Carro(carroDTO);
         //passa o objeto que possui as informações
@@ -47,16 +50,17 @@ public class CarroService {
         }
 
         carroRepository.existsByPlaca(carro.getPlaca());
-        return carroRepository.save(carro);
+        carroRepository.save(carro);
     }
 
-    public Carro atualizar(CarroEdicaoDTO carroEDTO) throws Exception {
+    public void editar(IDTO idto) throws Exception {
+        CarroEdicaoDTO carroEDTO = (CarroEdicaoDTO) idto;
         Carro carro = new Carro();
         BeanUtils.copyProperties(carroEDTO, carro);
         if (carroRepository.existsById(carroEDTO.getId())) {
             throw new Exception("Não foi encontrado nenhum carro com esse id");
         }
-        return carroRepository.save(carro);
+        carroRepository.save(carro);
     }
 
 }

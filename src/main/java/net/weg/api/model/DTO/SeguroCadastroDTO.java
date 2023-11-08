@@ -13,7 +13,7 @@ import net.weg.api.model.Entity.Usuario;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SeguroCadastroDTO {
+public class SeguroCadastroDTO implements IDTO {
 
     private Double valor;
     private String descricao;

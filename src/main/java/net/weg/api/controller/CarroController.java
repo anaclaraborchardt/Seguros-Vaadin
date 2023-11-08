@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -25,9 +26,9 @@ public class CarroController {
 
     @GetMapping("/{id}")
     //path seria uma variável da url
-    public ResponseEntity<Carro> buscarCarro(@PathVariable Integer id){
+    public ResponseEntity<Carro> buscarUm(@PathVariable Integer id){
         try {
-            return new ResponseEntity<>(carroService.buscarCarro(id),
+            return new ResponseEntity<>(carroService.buscarUm(id),
                     HttpStatus.OK);
         }catch(NoSuchElementException e){
             return new ResponseEntity<>(HttpStatus.CONFLICT);
@@ -42,7 +43,7 @@ public class CarroController {
     }
 
     @GetMapping
-    public ResponseEntity<Collection<Carro>> buscarTodos(){
+    public ResponseEntity<List<Carro>> buscarTodos(){
         return new ResponseEntity<>(carroService.buscarTodos(),
                 HttpStatus.OK);
     }
@@ -61,7 +62,7 @@ public class CarroController {
     @PostMapping
     public ResponseEntity<Carro> inserir(@RequestBody CarroCadastroDTO carroCadastroDTO){
         try {
-            return new ResponseEntity<>(carroService.inserir(carroCadastroDTO),
+            return new ResponseEntity<>(
                     HttpStatus.CREATED);
         }catch(Exception e){
             return new ResponseEntity<>(HttpStatus.CONFLICT);
@@ -71,7 +72,7 @@ public class CarroController {
     @PutMapping
     public ResponseEntity<Carro> atualizar(@RequestBody CarroEdicaoDTO carroDTO){
         try {
-            return new ResponseEntity<>(carroService.atualizar(carroDTO),
+            return new ResponseEntity<>(
                     HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

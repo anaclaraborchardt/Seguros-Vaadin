@@ -10,17 +10,15 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @AllArgsConstructor
-
+@NoArgsConstructor
 @Embeddable
 public class SeguroId implements Serializable {
 
     private Integer seguradoraId;
-    private final Integer seguroId;
-    private static Integer proxId = 1;
+    private Integer seguroId;
 //    private Integer carroId;
 
-    public SeguroId(){
-        seguroId = proxId;
-        proxId ++;
+    public SeguroId(Integer seguroId) {
+        this.seguroId = seguroId;
     }
 }

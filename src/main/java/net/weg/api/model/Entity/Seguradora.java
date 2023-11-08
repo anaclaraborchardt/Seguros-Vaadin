@@ -3,6 +3,7 @@ package net.weg.api.model.Entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import net.weg.api.model.DTO.SeguradoraCadastroDTO;
 
 import java.util.Set;
 
@@ -20,4 +21,7 @@ public class Seguradora {
     private Endereco endereco;
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Cliente> clientes;
+
+    public Seguradora(SeguradoraCadastroDTO seguradoraDTO) {
+    }
 }

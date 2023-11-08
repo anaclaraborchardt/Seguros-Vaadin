@@ -1,6 +1,8 @@
 package net.weg.api.View;
 
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
@@ -18,7 +20,10 @@ public class NavBarApp extends AppLayout {
 
         Tabs tabs = getTabs();
 
-        addToNavbar(title, tabs);
+        Button salvar = new Button("Salvar", event -> {
+            UI.getCurrent().navigate("/register");
+        });
+        addToNavbar(title, tabs, salvar);
             }
 
             private Tabs getTabs() {

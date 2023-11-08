@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.weg.api.model.DTO.SeguroCadastroDTO;
 
 @Entity
 @NoArgsConstructor
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Seguro {
 
     @EmbeddedId
-    private final SeguroId idComposto = new SeguroId();
+    private SeguroId idComposto = new SeguroId();
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    private Integer seguroId;
@@ -33,4 +34,7 @@ public class Seguro {
     private Carro carro;
     @ManyToOne
     private Cliente cliente;
+
+    public Seguro(SeguroCadastroDTO seguroCadastroDTO) {
+    }
 }

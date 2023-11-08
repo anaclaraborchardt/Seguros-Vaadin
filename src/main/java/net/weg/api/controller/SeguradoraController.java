@@ -1,5 +1,6 @@
 package net.weg.api.controller;
 
+import net.weg.api.model.DTO.SeguradoraCadastroDTO;
 import net.weg.api.model.Entity.Seguradora;
 import net.weg.api.service.SeguradoraService;
 import org.springframework.web.bind.annotation.*;
@@ -34,13 +35,13 @@ public class SeguradoraController {
     }
 
     @PostMapping()
-    public void inserir(@RequestBody Seguradora seguradora){
-        seguradoraService.inserir(seguradora);
+    public void inserir(@RequestBody SeguradoraCadastroDTO seguradora) throws Exception {
+        seguradoraService.cadastrar(seguradora);
     }
 
     @PutMapping
-    public void atualizar (@RequestBody Seguradora seguradora){
-        seguradoraService.inserir(seguradora);
+    public void atualizar (@RequestBody SeguradoraCadastroDTO seguradora) throws Exception {
+        seguradoraService.cadastrar(seguradora);
     }
 }
 

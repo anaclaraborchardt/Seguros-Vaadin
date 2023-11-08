@@ -21,6 +21,7 @@ public class Usuario {
     private Integer id;
     private String nome;
     private String sobrenome;
+    private String usuario;
     private String senha;
     private Integer idade;
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)

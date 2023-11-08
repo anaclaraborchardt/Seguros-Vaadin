@@ -9,6 +9,7 @@ import net.weg.api.model.DTO.CarroCadastroDTO;
 @AllArgsConstructor
 @Entity
 
+
 public class Carro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

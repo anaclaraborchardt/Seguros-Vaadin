@@ -10,10 +10,11 @@ import net.weg.api.model.Entity.Endereco;
 import java.util.Set;
 @AllArgsConstructor
 @Data
-public class UsuarioCadastroDTO {
+public class UsuarioCadastroDTO implements IDTO {
 
     private String nome;
     private String sobrenome;
+    private String usuario;
     private String senha;
     private Integer idade;
     private Set<Endereco> endereco;

@@ -2,6 +2,7 @@ package net.weg.api.model.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import net.weg.api.model.DTO.UsuarioCadastroDTO;
 
 import java.util.Set;
 
@@ -18,6 +19,10 @@ public class Cliente extends Usuario{
     private Set<Seguro> seguros;
     @ManyToMany(mappedBy = "clientes", fetch = FetchType.EAGER)
     private Set<Seguradora> seguradoras;
+
+    public Cliente(UsuarioCadastroDTO usuarioCadastroDTO) {
+    }
+
 
     @Override
     public String toString() {

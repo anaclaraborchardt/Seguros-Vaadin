@@ -55,8 +55,9 @@ public class CadastroUsuario extends FormLayout {
                         }
                 );
 
-                clienteService.salvar(new UsuarioCadastroDTO(
+                clienteService.cadastrar(new UsuarioCadastroDTO(
                         usuario.getValue(),
+                        sobrenome.getValue(),
                         sobrenome.getValue(),
                         senha.getValue(),
                         idade.getValue(),

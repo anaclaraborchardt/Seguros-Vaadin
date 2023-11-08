@@ -37,12 +37,12 @@ public class ClienteController {
     }
 
     @PostMapping()
-    public void inserir(@RequestBody UsuarioCadastroDTO usuarioDTO){
-        usuarioService.salvar(usuarioDTO);
+    public void inserir(@RequestBody UsuarioCadastroDTO usuarioDTO) throws Exception {
+        usuarioService.cadastrar(usuarioDTO);
     }
 
     @PutMapping
-    public void atualizar (@RequestBody UsuarioCadastroDTO usuarioDTO){
-        usuarioService.salvar(usuarioDTO);
+    public void atualizar (@RequestBody UsuarioCadastroDTO usuarioDTO) throws Exception {
+        usuarioService.cadastrar(usuarioDTO);
     }
 }

@@ -34,8 +34,8 @@ public class SeguroController {
     }
 
     @PostMapping()
-    public void inserir(@RequestBody SeguroCadastroDTO seguro){
-        seguroService.inserir(seguro);
+    public void inserir(@RequestBody SeguroCadastroDTO seguro) throws Exception {
+        seguroService.cadastrar(seguro);
     }
 
 //    @PutMapping

@@ -27,12 +27,12 @@ import java.awt.*;
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @Data
-public class CadastroSeguros extends FormLayout {
+public class CadastroSeguros extends Dialog {
 
     private final SeguroService seguroService;
+    private FormLayout fl;
 
-    CadastroSeguros(Dialog dialog,
-                    SeguroService seguroService,
+    CadastroSeguros(SeguroService seguroService,
                     SeguradoraService seguradoraService,
                     CarroService carroService,
                     ClienteService clienteService) {
@@ -55,27 +55,24 @@ public class CadastroSeguros extends FormLayout {
         clienteSelect.setLabel("Cliente");
         clienteSelect.setItems(clienteService.buscarTodos());
 
-        Button buttonSave = new Button("Salvar", new ComponentEventListener<ClickEvent<com.vaadin.flow.component.button.Button>>() {
-            @SneakyThrows
-            @Override
-            public void onComponentEvent(ClickEvent<Button> buttonClickEvent) {
+        Button buttonSave = new Button("Salvar", event -> {
                 SeguroCadastroDTO seguroDTO = new SeguroCadastroDTO(
                         valor.getValue(),
                         descricao.getValue(),
                         franquia.getValue(),
                         seguradora.getValue(),
                         carro.getValue(),
-                        clienteSelect.getValue()
-
-                );
-
-                seguroService.inserir(seguroDTO);
-                dialog.close();
+                        clienteSelect.getValue());
+            try {
+                seguroService.cadastrar(seguroDTO);
+            } catch (Exception exception) {
+                exception.printStackTrace();
             }
+            this.close();
         });
 
-        Button buttonCancel = new Button("Cancelar", event -> dialog.close());
-        dialog.getFooter().add(buttonSave, buttonCancel);
+        Button buttonCancel = new Button("Cancelar", event -> this.close());
+        this.getFooter().add(buttonSave, buttonCancel);
         add(valor, descricao, franquia, seguradora, carro, clienteSelect);
     }
 
